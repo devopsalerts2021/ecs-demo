@@ -7,14 +7,14 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=882177190987.dkr.ecr.ap-south-1.amazonaws.com/staging_frm_axs@sha256:dda198954082621ec69e2d2679576b6a52f04bdb1ea7b56fc1273ff238c6a642
+      - REPOSITORY_URI=882177190987.dkr.ecr.ap-south-1.amazonaws.com/staging_frm_axs
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest .
+      - docker build -t $REPOSITORY_URI .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
