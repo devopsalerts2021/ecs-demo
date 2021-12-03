@@ -1,0 +1,6 @@
+[
+    {
+      "name": "cn-staging-weddev",
+      "imageUri": "882177190987.dkr.ecr.ap-south-1.amazonaws.com/staging_frm_axs:latest"
+    }
+  ]
