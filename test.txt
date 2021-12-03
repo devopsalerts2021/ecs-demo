@@ -26,3 +26,6 @@ post_build:
       - cat imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
+
+
+  hello 
